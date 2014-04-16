@@ -58,6 +58,10 @@ class PersonTestCase(DateframeableTests, TimestampableTests, PermalinkableTests,
         p.add_contact_details(contacts)
         self.assertEqual(p.contact_details.count(), 2)
 
+    def test_person_unicode(self):
+        p = self.create_instance()
+        self.assertEquals(p.__unicode__(), p.name)
+
 
 
 

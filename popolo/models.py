@@ -81,6 +81,11 @@ class Person(Dateframeable, Timestampable, Permalinkable, models.Model):
         for c in contacts:
             self.add_contact_detail(**c)
 
+    def __unicode__(self):
+        return self.name
+def __unicode__(self):
+    return self.name
+
 
 
 class Organization(Dateframeable, Timestampable, Permalinkable, models.Model):
