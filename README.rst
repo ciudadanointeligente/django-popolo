@@ -1,4 +1,4 @@
-popolo
+popolo (WARNING: THIS IS JUST AN UGLY PATCH, PLEASE USE THE MASTER BRANCH AT openpolis/django-popolo)
 ========================
 
 

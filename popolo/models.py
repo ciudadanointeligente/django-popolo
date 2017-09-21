@@ -458,6 +458,8 @@ class Area(GenericRelatable, Dateframeable, Timestampable, models.Model):
     # array of items referencing "http://popoloproject.com/schemas/link.json#"
     sources = GenericRelation('Source', blank=True, null=True, help_text="URLs to source documents about the contact detail")
 
+    slug = AutoSlugField(populate_from='id', default="")
+
     def __str__(self):
         return self.name
 
