@@ -41,6 +41,7 @@ class Person(Dateframeable, Timestampable, models.Model):
         primary_key=True, max_length=256,
         slugify=slugify
     )
+    slug = models.CharField(_("slug"), max_length=512, null=True)
 
     name = models.CharField(_("name"), max_length=512, help_text=_("A person's preferred full name"))
 
@@ -420,7 +421,7 @@ class Language(models.Model):
         return u"{0} ({1})".format(self.name, self.iso639_1_code)
 
 @python_2_unicode_compatible
-class Area(GenericRelatable, Dateframeable, Timestampable, models.Model):
+class Area(Dateframeable, Timestampable, models.Model):
     """
     An area is a geographic area whose geometry may change over time.
     see schema at http://popoloproject.com/schemas/area.json#
