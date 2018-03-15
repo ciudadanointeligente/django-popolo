@@ -41,7 +41,11 @@ class Person(Dateframeable, Timestampable, models.Model):
         primary_key=True, max_length=256,
         slugify=slugify
     )
-    slug = models.CharField(_("slug"), max_length=512, null=True)
+    slug = AutoSlugField(
+        populate_from='name',
+        null=True, max_length=256,
+        slugify=slugify
+    )
 
     name = models.CharField(_("name"), max_length=512, help_text=_("A person's preferred full name"))
 

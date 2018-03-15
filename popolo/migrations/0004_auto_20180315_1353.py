@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 import autoslug.fields
 from django.db import migrations, models
 import popolo.behaviors.models
+import autoslug.fields
 
 
 def copy_id_into_slug(apps, schema_editor):
@@ -24,7 +25,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='person',
             name='slug',
-            field=models.CharField(max_length=512, null=True, verbose_name='slug'),
+            field=autoslug.fields.AutoSlugField(editable=False, max_length=512, null=True, populate_from=b'name'),
         ),
         migrations.RunPython(copy_id_into_slug),
     ]
